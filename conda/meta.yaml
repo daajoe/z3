@@ -1,0 +1,37 @@
+package:
+  name: z3_experimental
+  version: {{ environ['VERSION'] }}
+
+source:
+  git_rev: master
+  git_url: https://github.com/daajoe/z3.git
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - gcc # [linux]
+    - libgcc-ng
+    - libstdcxx-ng
+
+  run:
+    - python
+    - libgcc # [linux]
+    - libgcc-ng
+    - libstdcxx-ng
+
+test:
+  commands:
+    - z3 --version
+
+about:
+  description: Z3 is a theorem prover from Microsoft Research. It is licensed under the MIT license.
+  dev_url: https://github.com/Z3Prover/z3
+  doc_url: https://github.com/Z3Prover/z3/wiki#background
+  home: https://www.microsoft.com/en-us/download/details.aspx?id=52270
+  license: MIT
+  license_file: LICENSE.txt
+
+extra:
+  copy_test_source_files: true
+  final: true
